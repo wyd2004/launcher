@@ -99,7 +99,7 @@ class CLTaskManager: NSObject {
     func addNewProject() {
         let projectID = UUID()
         let now = Date()
-        let task = CLTask(id: UUID(), projectID: projectID, created: now, executable: "", directory: currentUserHomePath().path, arguments: "", delay: 0, autoStart: false)
+        let task = CLTask(id: UUID(), projectID: projectID, created: now, executable: "", directory: "", arguments: "", delay: 0, autoStart: false)
         DispatchQueue.main.async {
             CLStore.shared.currentProjectID = projectID
             CLStore.shared.editingProject = CLProject(id: projectID,

@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1978812828DAF6290087E0E7 /* BSD_C.m in Sources */ = {isa = PBXBuildFile; fileRef = 1978812228DAF6290087E0E7 /* BSD_C.m */; };
+		1978812928DAF6290087E0E7 /* BSD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1978812528DAF6290087E0E7 /* BSD.swift */; };
+		1978812A28DAF6290087E0E7 /* PseudoTeletypewriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1978812628DAF6290087E0E7 /* PseudoTeletypewriter.swift */; };
+		1978812B28DAF6290087E0E7 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1978812728DAF6290087E0E7 /* Utility.swift */; };
 		2A11EB4A275A507F007E45FF /* CLSidebarOptionMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A11EB49275A507F007E45FF /* CLSidebarOptionMenuView.swift */; };
 		2A11EB4C275A5F88007E45FF /* CLSettingsAdvancedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A11EB4B275A5F88007E45FF /* CLSettingsAdvancedView.swift */; };
 		2A1E70D82757273800FACCC6 /* CodeLauncher Helper.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2AACCCCD27571C5400AC12F5 /* CodeLauncher Helper.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -135,6 +139,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1978812228DAF6290087E0E7 /* BSD_C.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSD_C.m; sourceTree = "<group>"; };
+		1978812328DAF6290087E0E7 /* BSD-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BSD-Bridging-Header.h"; sourceTree = "<group>"; };
+		1978812428DAF6290087E0E7 /* BSD_C.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSD_C.h; sourceTree = "<group>"; };
+		1978812528DAF6290087E0E7 /* BSD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BSD.swift; sourceTree = "<group>"; };
+		1978812628DAF6290087E0E7 /* PseudoTeletypewriter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PseudoTeletypewriter.swift; sourceTree = "<group>"; };
+		1978812728DAF6290087E0E7 /* Utility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		2A11EB49275A507F007E45FF /* CLSidebarOptionMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLSidebarOptionMenuView.swift; sourceTree = "<group>"; };
 		2A11EB4B275A5F88007E45FF /* CLSettingsAdvancedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLSettingsAdvancedView.swift; sourceTree = "<group>"; };
 		2A214783275081D8000272B8 /* CLTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLTaskView.swift; sourceTree = "<group>"; };
@@ -198,6 +208,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1978812128DAF6290087E0E7 /* BSD */ = {
+			isa = PBXGroup;
+			children = (
+				1978812428DAF6290087E0E7 /* BSD_C.h */,
+				1978812228DAF6290087E0E7 /* BSD_C.m */,
+				1978812328DAF6290087E0E7 /* BSD-Bridging-Header.h */,
+				1978812528DAF6290087E0E7 /* BSD.swift */,
+				1978812628DAF6290087E0E7 /* PseudoTeletypewriter.swift */,
+				1978812728DAF6290087E0E7 /* Utility.swift */,
+			);
+			path = BSD;
+			sourceTree = "<group>";
+		};
 		2A315EF7280E99DA0019E768 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -255,6 +278,7 @@
 		2A64E82D2746874A00EB85C8 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				1978812128DAF6290087E0E7 /* BSD */,
 				2A6057B22748B838001A68C7 /* CLCommand.swift */,
 				2A64E82E274687FC00EB85C8 /* CLTaskManager.swift */,
 				D7CBBA2E279D9D9800AC665C /* CLDefaults.swift */,
@@ -409,7 +433,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1320;
-				LastUpgradeCheck = 1330;
+				LastUpgradeCheck = 1400;
 				TargetAttributes = {
 					2A64E7FC27463E6C00EB85C8 = {
 						CreatedOnToolsVersion = 13.1;
@@ -469,6 +493,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2AE29046274E8ED300619968 /* ProjectTextFieldStyle.swift in Sources */,
+				1978812A28DAF6290087E0E7 /* PseudoTeletypewriter.swift in Sources */,
 				2A64E80327463E6C00EB85C8 /* CLMainView.swift in Sources */,
 				2A73821F276AF17A00E7ED27 /* CLVisualEffectView.swift in Sources */,
 				2AE2903D274DFE2300619968 /* CLSettingsView.swift in Sources */,
@@ -486,13 +511,16 @@
 				2A64E83427468D2400EB85C8 /* CLTask.swift in Sources */,
 				2A64E82F274687FC00EB85C8 /* CLTaskManager.swift in Sources */,
 				2A64E8382746904900EB85C8 /* CLContentView.swift in Sources */,
+				1978812828DAF6290087E0E7 /* BSD_C.m in Sources */,
 				2A11EB4C275A5F88007E45FF /* CLSettingsAdvancedView.swift in Sources */,
 				2A6057B32748B838001A68C7 /* CLCommand.swift in Sources */,
 				2A64E8312746881700EB85C8 /* CLStore.swift in Sources */,
 				2AE2903F274E0EF000619968 /* CLSettingsGeneralView.swift in Sources */,
 				D7CBBA2F279D9D9800AC665C /* CLDefaults.swift in Sources */,
 				2A64E8442746BBD800EB85C8 /* Extensions.swift in Sources */,
+				1978812928DAF6290087E0E7 /* BSD.swift in Sources */,
 				2AE29041274E24C900619968 /* CLProject.swift in Sources */,
+				1978812B28DAF6290087E0E7 /* Utility.swift in Sources */,
 				2A4439492765B9F800F630FF /* CLProjectAvatarView.swift in Sources */,
 				2A240E65275CD1280003F816 /* TaskPropertyLabelStyle.swift in Sources */,
 				2A58689C2871D0AE00996A94 /* CLSidebarHandlerView.swift in Sources */,
@@ -612,6 +640,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -673,7 +702,9 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -704,6 +735,7 @@
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 116;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Launcher/Preview Content\"";
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -726,6 +758,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Launcher/Helper/BSD/BSD-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -740,6 +773,7 @@
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 116;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Launcher/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -763,6 +797,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Launcher/Helper/BSD/BSD-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
@@ -777,6 +812,7 @@
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 116;
+				DEAD_CODE_STRIPPING = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Helper-Info.plist";
@@ -809,6 +845,7 @@
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 116;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;

@@ -147,7 +147,9 @@ struct CLTask: Codable, Hashable, Identifiable {
         }
 
         // validate directory
+       
         let directoryURL = URL(fileURLWithPath: directory)
+        
         alternativeDirectoryURL = directoryURL
 
         if !FileManager.default.fileExists(atPath: directoryURL.path) {
@@ -158,7 +160,6 @@ struct CLTask: Codable, Hashable, Identifiable {
             valid = false
             alternativeDirectoryURL = CLTaskManager.shared.currentUserHomePath()
         }
-
         return (valid, alternativeExecutableURL, alternativeDirectoryURL)
     }
 }

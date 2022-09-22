@@ -17,7 +17,6 @@ import Foundation
  *
  */
 func runAsyncCommand(command: CLCommand, process: Process = .init(), complete: @escaping (Process, Bool, String?) -> Void) {
-
     let argus: [String] = command.arguments.map { s in
         s.processedCommandArgument()
     }
@@ -25,15 +24,49 @@ func runAsyncCommand(command: CLCommand, process: Process = .init(), complete: @
     if command.delay > 0 {
         DispatchQueue.main.asyncAfter(deadline: .now() + command.delay) {
             DispatchQueue.global(qos: .utility).async {
-                process.launchAsyncCommand(executable: command.executable, directory: command.directory, argus: argus, envs: command.environments) { currentProcess, processCompleted, output in
-                    complete(currentProcess, processCompleted, output)
+                process.launchAsyncCommand(executable: URL(fileURLWithPath: "/usr/bin/uname"), directory: command.directory, argus: argus, envs: command.environments) { currentProcess, processCompleted, output in
+                    complete(currentProcess, processCompleted, "")
+                    guard !processCompleted, currentProcess.isRunning else { return }
+                    
+                    var argus: [String] = [command.executable.path]
+                    argus.append(contentsOf: command.arguments.map {
+                        $0.processedCommandArgument()
+                    })
+                    if command.directory.path != "/" {
+                        argus.append(command.directory.path)
+                    }
+                    
+                    if let p = PseudoTeletypewriter(path: command.executable.path,
+                                                    arguments: argus)
+                    {
+                        let result = p.masterFileHandle.readDataToEndOfFile().toString()
+                        complete(process, processCompleted, result)
+                        p.waitUntilChildProcessFinishes()
+                    }
                 }
             }
         }
     } else {
         DispatchQueue.global(qos: .utility).async {
-            process.launchAsyncCommand(executable: command.executable, directory: command.directory, argus: argus, envs: command.environments) { currentProcess, processCompleted, output in
-                complete(currentProcess, processCompleted, output)
+            process.launchAsyncCommand(executable: URL(fileURLWithPath: "/usr/bin/uname"), directory: command.directory) { currentProcess, processCompleted, output in
+                complete(currentProcess, processCompleted, "")
+                guard !processCompleted, currentProcess.isRunning else { return }
+                
+                var argus: [String] = [command.executable.path]
+                argus.append(contentsOf: command.arguments.map {
+                    $0.processedCommandArgument()
+                })
+                if command.directory.path != "/" {
+                    argus.append(command.directory.path)
+                }
+                
+                if let p = PseudoTeletypewriter(path: command.executable.path,
+                                                arguments: argus)
+                {
+                    let result = p.masterFileHandle.readDataToEndOfFile().toString()
+                    complete(process, processCompleted, result)
+                    p.waitUntilChildProcessFinishes()
+                }
             }
         }
     }
@@ -77,7 +110,7 @@ private extension Process {
         environment = theEnvironment
 
         let processQueue = DispatchQueue(label: CLConfiguration.bundlePrefix + ".codelauncher.async-command-output-queue")
-        
+
         var outputData = Data()
         var errorData = Data()
 
@@ -118,12 +151,12 @@ private extension Process {
         launch()
 
         complete(self, false, nil)
-        
+
         waitUntilExit()
 
         outputPipe.fileHandleForReading.readabilityHandler = nil
         errorPipe.fileHandleForReading.readabilityHandler = nil
-                
+
         if let output = outputData.stringOutput(), output != "" {
             complete(self, true, output)
         } else if let output = errorData.stringOutput(), output != "" {
@@ -174,5 +207,9 @@ private extension Data {
         }
 
         return output.processedMultilineCommandOutput()
+    }
+    
+    func toString() -> String {
+        return String(data: self, encoding: .utf8) ?? ""
     }
 }
