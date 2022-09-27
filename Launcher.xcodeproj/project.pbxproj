@@ -11,6 +11,7 @@
 		1978812928DAF6290087E0E7 /* BSD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1978812528DAF6290087E0E7 /* BSD.swift */; };
 		1978812A28DAF6290087E0E7 /* PseudoTeletypewriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1978812628DAF6290087E0E7 /* PseudoTeletypewriter.swift */; };
 		1978812B28DAF6290087E0E7 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1978812728DAF6290087E0E7 /* Utility.swift */; };
+		19EBB7B628DF647800B0999D /* XTerminalUI in Frameworks */ = {isa = PBXBuildFile; productRef = 19EBB7B528DF647800B0999D /* XTerminalUI */; };
 		2A11EB4A275A507F007E45FF /* CLSidebarOptionMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A11EB49275A507F007E45FF /* CLSidebarOptionMenuView.swift */; };
 		2A11EB4C275A5F88007E45FF /* CLSettingsAdvancedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A11EB4B275A5F88007E45FF /* CLSettingsAdvancedView.swift */; };
 		2A1E70D82757273800FACCC6 /* CodeLauncher Helper.app in CopyFiles */ = {isa = PBXBuildFile; fileRef = 2AACCCCD27571C5400AC12F5 /* CodeLauncher Helper.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -195,6 +196,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A9B78162777960A00CA35AA /* Sparkle in Frameworks */,
+				19EBB7B628DF647800B0999D /* XTerminalUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,6 +405,7 @@
 			name = CodeLauncher;
 			packageProductDependencies = (
 				2A9B78152777960A00CA35AA /* Sparkle */,
+				19EBB7B528DF647800B0999D /* XTerminalUI */,
 			);
 			productName = launcher;
 			productReference = 2A64E7FD27463E6C00EB85C8 /* CodeLauncher.app */;
@@ -454,6 +457,7 @@
 			mainGroup = 2A64E7F427463E6C00EB85C8;
 			packageReferences = (
 				2A9B78142777960A00CA35AA /* XCRemoteSwiftPackageReference "Sparkle" */,
+				19EBB7B428DF647800B0999D /* XCRemoteSwiftPackageReference "XTerminalUI" */,
 			);
 			productRefGroup = 2A64E7FE27463E6C00EB85C8 /* Products */;
 			projectDirPath = "";
@@ -902,6 +906,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		19EBB7B428DF647800B0999D /* XCRemoteSwiftPackageReference "XTerminalUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Lakr233/XTerminalUI.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		2A9B78142777960A00CA35AA /* XCRemoteSwiftPackageReference "Sparkle" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/sparkle-project/Sparkle";
@@ -913,6 +925,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		19EBB7B528DF647800B0999D /* XTerminalUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 19EBB7B428DF647800B0999D /* XCRemoteSwiftPackageReference "XTerminalUI" */;
+			productName = XTerminalUI;
+		};
 		2A9B78152777960A00CA35AA /* Sparkle */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 2A9B78142777960A00CA35AA /* XCRemoteSwiftPackageReference "Sparkle" */;

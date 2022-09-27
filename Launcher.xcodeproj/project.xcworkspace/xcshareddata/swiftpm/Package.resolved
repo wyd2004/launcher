@@ -8,6 +8,15 @@
         "revision" : "7918c1c8fc68baa37917eeaa67286b077ad5e393",
         "version" : "1.27.1"
       }
+    },
+    {
+      "identity" : "xterminalui",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Lakr233/XTerminalUI.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "40c26fb30459068aabd604478d382baba8a264ac"
+      }
     }
   ],
   "version" : 2

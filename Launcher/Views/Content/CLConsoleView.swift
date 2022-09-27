@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import XTerminalUI
 
 // TODO: Functions for Color
 // Here we need more functions to return Color based on the setting value of Appearance
@@ -87,13 +88,22 @@ private struct CLTaskIndexedOutputView: View {
         }
     }
 
+    let terminal = STerminalView()
     var body: some View {
         HStack {
             if #available(macOS 12.0, *) {
-                Text(output.output.content)
-                    .textSelection(.enabled)
-                    .font(.system(size: 13, weight: .regular, design: .monospaced))
-                    .foregroundColor(foregroundColor(for: appearance))
+                GeometryReader { r in
+                    terminal.frame(width: r.size.width, height: r.size.height)
+                        .onAppear{
+                            terminal.write(output.output.content)
+                        }
+                }
+                
+                    
+//                Text(output.output.content)
+//                    .textSelection(.enabled)
+//                    .font(.system(size: 13, weight: .regular, design: .monospaced))
+//                    .foregroundColor(foregroundColor(for: appearance))
             } else {
                 Text(output.output.content)
                     .font(.system(size: 13, weight: .regular, design: .monospaced))
@@ -103,7 +113,7 @@ private struct CLTaskIndexedOutputView: View {
         }
         .padding(.horizontal, 8)
         .id(output.id)
-        .background(backgroundColor(for: appearance))
+//        .background(backgroundColor(for: appearance))
     }
 }
 
@@ -158,7 +168,7 @@ struct CLConsoleView: View {
                             }
                             return false
                         }), id: \.id) { t in
-                            CLTaskIndexedOutputView(output: t)
+                            CLTaskIndexedOutputView(output: t).frame(height: 30)
                         }
                     }
                 }
@@ -182,7 +192,7 @@ struct CLConsoleView: View {
                     }
                 }
             }
-            .background(backgroundColor(for: appearance))
+//            .background(backgroundColor(for: appearance))
 
             HStack(spacing: 16) {
                 if project.tasks.count > 1 {
